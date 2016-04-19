@@ -5,8 +5,9 @@ export default class Movie extends Component {
         return(
             <li>
                 <img src={this.props.movie.image} alt={this.props.movie.name} />
-                <h2><a href={this.props.movie.url}>{this.props.movie.name}</a></h2>
+                <h2>{this.props.movie.name}</h2>
                 <h3>{this.props.movie.company}</h3>
+                <p><a href={this.props.movie.url}>{this.props.movie.name} on IMDB</a></p>
             </li>
         );
     }
