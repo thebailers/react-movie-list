@@ -13,10 +13,6 @@ export default class App extends Component {
         this.state = { company: 'All' };
     }
 
-    companyFilter() {
-        this.setState({company: event.target.value});
-    }
-
     fetchMovies() {
         return movieList;
     }
