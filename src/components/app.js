@@ -13,25 +13,21 @@ export default class App extends Component {
         this.state = { company: 'All' };
     }
 
-    fetchMovies() {
-        return movieList;
-    }
-
     renderMovies(filter) {
-        return this.fetchMovies()
-            .sort(function(a,b) {
+        return movieList
+          .sort(function(a,b) {
                 return (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0);
-            })
-            .filter(function(movie) {
-                return filter === 'All' || movie.company == filter;
-            })
-            .map((movie) => (
-                <Movie key={movie.url} movie={movie} />
-            ));
+          })
+          .filter(function(movie) {
+              return filter === 'All' || movie.company == filter;
+          })
+          .map((movie) => (
+              <Movie key={movie.url} movie={movie} />
+          ));
     }
 
     renderCompanies() {
-        return _.uniq(this.fetchMovies(), 'company').map((movie, i) => (
+        return _.uniq(movieList, 'company').map((movie, i) => (
             <Company key={i} movie={movie} />
         ));
     }
